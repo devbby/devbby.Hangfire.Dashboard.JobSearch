@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <MvcBuildViews>true</MvcBuildViews>
+        <LangVersion>12</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Hangfire.Core" Version="1.8.15" />
+      <PackageReference Include="Hangfire.RecurringJobAdmin" Version="1.0.5" />
+      <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.11" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="Dashboard\Pages\JobSearchPage.html" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="Hangfire.Storage.SQLite">
+        <HintPath>..\..\..\.nuget\packages\hangfire.storage.sqlite\0.4.2\lib\netstandard2.0\Hangfire.Storage.SQLite.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+</Project>
