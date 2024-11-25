@@ -5,11 +5,21 @@
         <MvcBuildViews>true</MvcBuildViews>
         <LangVersion>12</LangVersion>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Authors>devbby</Authors>
+        <Version>0.0.1-alpha</Version>
+        <PackageId>Hangfire.Dashboard.JobSearch</PackageId>
+        <PackageTags>Hangfire;Handfire Extension;Search;Server Side;SQL Server;SQLite;</PackageTags>
+        <Description>
+            This extension enables server side searching of executed jobs and job data via the Hangfire Dashboard.
+        </Description>
+        <PackageProjectUrl>
+            https://github.com/devbby/Hangfire.Dashboard.JobSearch
+        </PackageProjectUrl>
+        
     </PropertyGroup>
 
     <ItemGroup>
       <PackageReference Include="Hangfire.Core" Version="1.8.15" />
-      <PackageReference Include="Hangfire.RecurringJobAdmin" Version="1.0.5" />
       <PackageReference Include="Hangfire.Storage.SQLite" Version="0.4.2" />
       <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
       <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.11" />
