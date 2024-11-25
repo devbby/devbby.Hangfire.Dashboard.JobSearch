@@ -8,7 +8,7 @@
         <Authors>devbby</Authors>
         <Version>0.0.2-alpha</Version>
         <PackageId>devbby.Hangfire.Dashboard.JobSearch</PackageId>
-        <PackageTags>Hangfire Handfire-Extension Search Server-Side SQL-Server SQLite</PackageTags>
+        <PackageTags>Hangfire Search Hangfire-Extension Server-Side SQL-Server SQLite</PackageTags>
         <Description>
             This extension enables server side searching of executed jobs and job data via the Hangfire Dashboard.
         </Description>
