@@ -1,16 +1,20 @@
+using System;
+
 namespace Hangfire.Dashboard.JobSearch.Dashboard.Model
 {
     public class JobInfo
     {
+      
         public long JobId { get; }
         public string Method { get; }
-        public bool HasSucceeded { get; }
+        public string Status { get; }
+        public bool HasSucceeded => string.Equals(Status, "Succeeded", StringComparison.InvariantCultureIgnoreCase);
 
-        public JobInfo(long jobId, string method, bool hasSucceeded)
-        {
+        public JobInfo(long jobId, string method, string status)
+        { 
             JobId = jobId;
             Method = method;
-            HasSucceeded = hasSucceeded;
+            Status = status;
         }
     }
 }
