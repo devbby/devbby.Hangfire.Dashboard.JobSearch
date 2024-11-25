@@ -1,0 +1,74 @@
+<div class="row">
+    <div class="col-md-9">
+        <h1 id="page-title" class="page-header">Job Search</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <input class="form-control form-control-color mb-3" placeholder="Search for Job Id, Method, State Data" id="input-search" type="text">
+    </div>
+    <div class="col-md-1">
+        <button id="btn-find" class="btn btn-success">Find</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-9 " style="margin-top: 18px">
+        <table id="search-table" class="table table-sm "></table>
+    </div>
+    
+</div>
+
+
+<link href="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-2.1.8/b-3.2.0/sl-2.1.0/datatables.min.css" rel="stylesheet">
+<script src="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-2.1.8/b-3.2.0/sl-2.1.0/datatables.min.js"></script>
+
+<script defer  >
+    // 
+    const searchTable = $("#search-table").DataTable({
+        dom: 'ptrip',
+        pageLength: 1000,
+        select: true,
+        data: [],
+        columns: [
+            { data:"JobId", title: 'Job ID', type:'string' },
+            { data:"Method", title: 'Method', type:'string' },
+            { data:"Status", title: 'Status', type:'string' },
+        ]
+    })
+    .on('dblclick', 'tbody tr', async function (x) {
+        let selected =  searchTable.row(x.currentTarget).data();
+        window.open("jobs/details/"+selected.JobId,'_blank');
+          
+    });
+    
+    $(document).ready( async () => {
+        // let jobs = await findJobs("");
+        // searchTable.clear().rows.add(jobs).draw();
+    });
+    
+    $('#btn-find').on('click', async ()=>{
+
+        let jobs = await findJobs( $('#input-search').val() )
+        searchTable.clear().rows.add(jobs).draw();
+    });
+     
+ 
+    async function findJobs(term){
+
+        return await fetch(`SearchJobs?term=${term}`, {
+            method: 'GET',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        })
+        .then(response=>response.json())
+        .then(data=>data)
+        .catch(error => alert(error));
+    }
+    
+</script>
+
+ 
